@@ -64,8 +64,9 @@ class WebSocketServer:
         host = server_config["ip"]
         port = server_config["port"]
 
-        self.logger.bind(tag=TAG).info("Server is running at ws://{}:{}", get_local_ip(), port)
-        self.logger.bind(tag=TAG).info("=======上面的地址是websocket协议地址，请勿用浏览器访问=======")
+        # self.logger.bind(tag=TAG).info("Server is running at ws://{}:{}", get_local_ip(), port)
+        # self.logger.bind(tag=TAG).info("=======上面的地址是websocket协议地址，请勿用浏览器访问=======")
+        self.logger.bind(tag=TAG).info("Server is running at ws://0.0.0.0:{}", port)
         async with websockets.serve(
                 self._handle_connection,
                 host,
